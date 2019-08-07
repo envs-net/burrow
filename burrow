@@ -9,19 +9,19 @@ else
 fi
 
 # vars from config
-config_dir_gopher="$HOME/gopher/"
+config_dir_gopher="$HOME/public_gopher/"
 config_dir_phlog="phlog"
-config_gopher_server="sdf.org"
+config_gopher_server="envs.net"
 config_gopher_port="70"
-config_gopher_root="/users/username/"
+config_gopher_root="/~$USER/"
 config_phlog_gophermap=true
 config_phlog_usedate=true
 config_git_commit=false
 config_git_push=false
 config_autoindent=true
 config_file_rss="rss.xml"
-config_gopher_name="My Gopher Hole"
-config_gopher_desc="Description"
+config_gopher_name="$USER's gopherhole"
+config_gopher_desc="this is my gopherhole"
 config_rss_num_entries="10"
 config_phlog_autorss=false
 config_gophermap_omitserver=false
