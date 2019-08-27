@@ -133,8 +133,8 @@ parse_input () {
   do
     argc=$(printf "%s" "$1" | tr '[:upper:]' '[:lower:]')
     case $argc in
-      "quickstart") 
-        arg_quickstart=1 
+      "quickstart")
+        arg_quickstart=1
         ;;
       "shortlist")
         arg_shortlist=1
@@ -143,24 +143,24 @@ parse_input () {
         if [ $# -gt 1 ]; then
           shift
           arg_gophermap="${1%/}/"
-        else 
+        else
           arg_gophermap="/"
         fi
         ;;
-      "phlog") 
-        arg_phlog=1 
+      "phlog")
+        arg_phlog=1
         ;;
-      "gopherdir") 
-        arg_gopherdir=1 
+      "gopherdir")
+        arg_gopherdir=1
         ;;
-      "edit-config") 
-        arg_edit_config=1 
+      "edit-config")
+        arg_edit_config=1
         ;;
-      "update-git") 
-        arg_update_git=1 
+      "update-git")
+        arg_update_git=1
         ;;
-      "rss") 
-        arg_rss=1 
+      "rss")
+        arg_rss=1
         ;;
       *) printf "Unknown command: %s\\n" "$argc";;
     esac
@@ -534,7 +534,7 @@ make_rss () {
     if printf "%s" "$filename" | grep -q "/gophermap"; then
       item_type=1
       filename="$( printf "%s" "$filename" | sed "s|gophermap$||")"
-    else 
+    else
       item_type=0
     fi
     date="$(printf "%s" "$filename" | sed 's|^\./||' | awk 'BEGIN { FS="-" } { print $1; }')"
