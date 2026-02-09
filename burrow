@@ -16,6 +16,7 @@ config_gopher_port="70"
 config_gopher_root="/users/username/"
 config_phlog_gophermap=true
 config_phlog_usedate=true
+config_phlog_dateformat="%a, %Y-%m-%d %H:%M %Z"
 config_author=""
 config_git_commit=false
 config_git_push=false
@@ -396,7 +397,7 @@ make_post_temp () {
   if [ -n "$title" ]; then
     { printf "%s\n%s%s\n" "-------------------------------------------------------------------" "+title:  " "$title"
       if $use_date; then
-		    printf "%s%s\n" "+date:   " "$(LANG=en_US date +"%a, %Y-%m-%d %H:%M %Z")"
+		    printf "%s%s\n" "+date:   " "$(LANG=en_US date +"$config_phlog_dateformat")"
       fi
       if [ -n "${config_author}" ];then
 	      printf "+author: %s\n" "$config_author"
