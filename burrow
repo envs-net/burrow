@@ -405,7 +405,7 @@ make_post_temp () {
       fi
       printf "%s\\n\\n\\n" "-------------------------------------------------------------------"
       if $config_back_links;then
-	      printf "%s\n" "1Back to phlog	$config_gopher_root$config_dir_phlog	$config_gopher_server $config_gopher_port"
+	      printf "%s\n" "1Back to phlog	$config_gopher_root$config_dir_phlog	$config_gopher_server	$config_gopher_port"
 	      printf "%s\n\n" "1Home	$config_gopher_root	$config_gopher_server	$config_gopher_port"
       fi
     } > "$temp_post"
