@@ -17,6 +17,7 @@ config_gopher_root="/users/username/"
 config_phlog_gophermap=true
 config_phlog_usedate=true
 config_phlog_dateformat="%a, %Y-%m-%d %H:%M %Z"
+config_desc_names=true
 config_author=""
 config_back_links=true
 config_git_commit=false
@@ -391,17 +392,27 @@ make_post_unprocess () {
 }
 
 make_post_temp () {
+  # create description names and make them optional
+  _title="+title:  "
+  _date="+date:   "
+  _author="+author: "
+  if ! $config_desc_names;then
+    _title=""
+    _date=""
+    _author=""
+  fi
+
   # Create a tempfile to do our work
   temp_post=$(mktemp -t "$(basename "$0").post.XXXXXXX") || \
     die "Failed to create temporary file" 1
 
   if [ -n "$title" ]; then
-    { printf "%s\n%s%s\n" "-------------------------------------------------------------------" "+title:  " "$title"
+    { printf "%s\n%s%s\n" "-------------------------------------------------------------------" "$_title" "$title"
       if $use_date; then
-		    printf "%s%s\n" "+date:   " "$(LANG=en_US date +"$config_phlog_dateformat")"
+		    printf "%s%s\n" "$_date" "$(LANG=en_US date +"$config_phlog_dateformat")"
       fi
       if [ -n "${config_author}" ];then
-	      printf "+author: %s\n" "$config_author"
+	      printf "%s%s\n" "$_author" "$config_author"
       fi
       printf "%s\\n\\n\\n" "-------------------------------------------------------------------"
       if $config_back_links;then
