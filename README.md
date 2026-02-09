@@ -89,6 +89,7 @@ config_author="user <user@example.de>" # Adds author (disabled if empty string)
 config_back_links=true                 # Adds links back to phlog index and root page at end
 config_desc_names=true                 # Show metadata names (title, date, author)
 config_phlog_dateformat="%a, %Y-%m-%d %H:%M %Z" # date format from 'date' command
+config_dash_count=67                   # Number of dashes printed with the metadata
 
 config_git_commit=false                # automatically commit changes if git repo
 config_git_push=false                  # automatically push changes if git repo
