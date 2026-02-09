@@ -85,6 +85,9 @@ config_gopher_root="/users/username/"  # path on gopher host to gopher site
 config_dir_phlog="phlog"               # relative path to phlog
 config_phlog_gophermap=true            # phlogs use gophermap format by default
 config_phlog_usedate=true              # use a date-stamp on phlog posts
+config_author="user <user@example.de>" # Adds author (disabled if empty string)
+config_back_links=true                 # Adds links back to phlog index and root page at end
+config_phlog_dateformat="%a, %Y-%m-%d %H:%M %Z" # date format from 'date' command
 
 config_git_commit=false                # automatically commit changes if git repo
 config_git_push=false                  # automatically push changes if git repo
