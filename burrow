@@ -525,7 +525,7 @@ make_rss () {
   {
     printf '<?xml version="1.0"?><rss version="2.0"><channel>'
     printf "\\n<title>%s</title>\\n" "$config_gopher_name"
-    printf "<link>gopher://%s%s</link>\\n" "$config_gopher_server" "$config_gopher_root"
+    printf "<link>gopher://%s:%s/1%s</link>\\n" "$config_gopher_server" "$config_gopher_port" "$config_gopher_root"
     printf "<description>%s</description>\\n" "$config_gopher_desc"
   }  > "${config_dir_gopher}${config_file_rss}"
 
@@ -544,7 +544,7 @@ make_rss () {
       {
         printf "<item>\\n"
         printf "  <title>%s</title>\\n" "$title"
-        printf "  <link>gopher://%s/%s%s%s/%s</link>\\n" "$config_gopher_server" "$item_type" "$config_gopher_root" "$config_dir_phlog" "$filename"
+        printf "  <link>gopher://%s:%s/%s%s%s/%s</link>\\n" "$config_gopher_server" "$config_gopher_port" "$item_type" "$config_gopher_root" "$config_dir_phlog" "$filename"
         printf "  <pubdate>%s</pubdate>\\n" "$dateval"
         printf "  <description><![CDATA[<pre>\\n"
         if [ "$item_type" -eq 1 ]
